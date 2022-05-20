@@ -21,20 +21,20 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/timbod7/..."
 
 [dependencies.cast]
-version = "0.2.2"
+version = "0.3.0"
 default-features = false
 
-[dependencies.stm32f407g-disc]
-version = "0.1.0"
+[dependencies.stm32f429i-disc]
+version = "0.3.0"
 
 [dependencies.embedded-hal]
 version = "0.2.1"
 
 [dependencies.cortex-m]
-version = "0.5.7"
+version = "0.7"
 
 [dependencies.cortex-m-rt]
-version = "0.6.4"
+version = "*"
 
 [dependencies.panic-itm]
 version = "0.4.0"
