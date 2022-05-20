@@ -21,29 +21,29 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/timbod7/..."
 
 [dependencies.cast]
-version = "0.2.2"
+version = "0.3.0"
 default-features = false
 
 [dependencies.stm32f407g-disc]
-version = "0.1.0"
+version = "0.4.1"
 
 [dependencies.embedded-hal]
-version = "0.2.1"
+version = "0.2.7"
 
 [dependencies.cortex-m]
-version = "0.5.7"
+version = "0.7.4"
 
 [dependencies.cortex-m-rt]
-version = "0.6.4"
+version = "0.7.1"
 
 [dependencies.panic-itm]
-version = "0.4.0"
+version = "0.4.2"
 
 [dependencies.nb]
-version = "0.1.1"
+version = "1.0.0"
 
 [dependencies.stm32f4xx-hal]
-version = "0.1.0"
+version = "0.13.2"
 
 [patch.crates-io]
 stm32f4xx-hal  = { path = "../../repos-3rd-party/stm32f4xx-hal" }

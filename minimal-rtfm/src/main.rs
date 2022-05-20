@@ -12,7 +12,7 @@ extern crate panic_abort;
 
 // import the procedural macro
 use rtfm::app;
-use stm32f4::stm32f407;
+use stm32f4::stm32f429;
 
 // This macro call indicates that this is a RTFM application
 //
@@ -20,7 +20,7 @@ use stm32f4::stm32f407;
 // `main` yourself.
 app! {
     // this is the path to the device crate
-    device: stm32f407,
+    device: stm32f429,
 }
 
 // The initialization phase.
