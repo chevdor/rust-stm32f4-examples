@@ -1,6 +1,6 @@
 [target.thumbv7em-none-eabi]
 # runner = 'arm-none-eabi-gdb'
-runner = 'gdb -x openocd.gdb -q target/thumbv7em-none-eabi/debug/blinky-itm'
+runner = 'gdb -q target/thumbv7em-none-eabi/debug/blinky-itm'
 rustflags = [
 #  "-C", "linker=arm-none-eabi-gcc",
 #  "-C", "link-arg=-Wl,-Tlink.x",
@@ -10,7 +10,7 @@ rustflags = [
 ]
 
 [target.thumbv7m-none-eabi]
-runner = 'gdb -x openocd.gdb -q target/thumbv7m-none-eabi/debug/blinky-itm'
+runner = 'gdb -q target/thumbv7m-none-eabi/debug/blinky-itm'
 rustflags = [
   "-C", "link-arg=--nmagic",
   "-C", "link-arg=-Tlink.x"

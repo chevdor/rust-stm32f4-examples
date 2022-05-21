@@ -50,18 +50,16 @@ fn main() -> ! {
 			iprintln!(&mut itm.stim[0], "on");
 
 			// Delay twice for half a second due to limited timer resolution
-			delay.delay_ms(50_u16);
-			// delay.delay_ms(500_u16);
-			// delay.delay_ms(500_u16);
+			delay.delay_ms(500_u16);
+			delay.delay_ms(500_u16);
 
 			// Turn LED off
 			let _ = hal::digital::v2::OutputPin::set_low(&mut leds.green);
 			iprintln!(&mut itm.stim[0], "off");
 
 			// Delay twice for half a second due to limited timer resolution
-			delay.delay_ms(100_u16);
-			// delay.delay_ms(500_u16);
-			// delay.delay_ms(500_u16);
+			delay.delay_ms(500_u16);
+			delay.delay_ms(500_u16);
 		}
 	}
 
