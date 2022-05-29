@@ -1,0 +1,21 @@
+[target.thumbv7em-none-eabi]
+# runner = 'arm-none-eabi-gdb'
+runner = 'gdb -q target/thumbv7em-none-eabi/debug/blinky-itm'
+rustflags = [
+#  "-C", "linker=arm-none-eabi-gcc",
+#  "-C", "link-arg=-Wl,-Tlink.x",
+#  "-C", "link-arg=-nostartfiles"
+  "-C", "link-arg=--nmagic",
+  "-C", "link-arg=-Tlink.x"
+]
+
+[target.thumbv7m-none-eabi]
+runner = 'gdb -q target/thumbv7m-none-eabi/debug/blinky-itm'
+rustflags = [
+  "-C", "link-arg=--nmagic",
+  "-C", "link-arg=-Tlink.x"
+]
+
+[build]
+# target = "thumbv7m-none-eabi"        # Cortex-M3
+target = "thumbv7em-none-eabi"        # Cortex-M4
