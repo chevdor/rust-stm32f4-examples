@@ -44,33 +44,27 @@ mod app {
 		let mut button = gpioa.pa0.into_pull_down_input();
 		button.make_interrupt_source(&mut syscfg);
 		button.enable_interrupt(&mut ctx.device.EXTI);
-		button.trigger_on_edge(&mut ctx.device.EXTI, Edge::Falling);
-		tick::spawn().unwrap();
+		button.trigger_on_edge(&mut ctx.device.EXTI, Edge::Rising);
 		blink1::spawn_after(Duration::<u64, 1, 1000>::from_ticks(100)).unwrap();
-		(Shared {}, Local { button, led1, led2, state: true }, init::Monotonics(mono))
+		(Shared {}, Local { button, led1, led2, state: false }, init::Monotonics(mono))
 	}
 
 	#[task(local = [led1])]
 	fn blink1(cx: blink1::Context) {
 		cx.local.led1.toggle();
+
 		blink1::spawn_after(Duration::<u64, 1, 1000>::from_ticks(50)).unwrap();
 	}
 
-	#[task(local = [led2, state])]
-	fn tick(cx: tick::Context) {
+	#[task(binds = EXTI0, local = [button, state, led2])]
+	fn btn_1(cx: btn_1::Context) {
+		cx.local.button.clear_interrupt_pending_bit();
 		if *cx.local.state {
-			cx.local.led2.set_high();
+			cx.local.led2.set_low();
 			*cx.local.state = false;
 		} else {
-			cx.local.led2.set_low();
+			cx.local.led2.set_high();
 			*cx.local.state = true;
 		}
-		tick::spawn_after(Duration::<u64, 1, 1000>::from_ticks(55)).unwrap();
-	}
-
-	#[task(local = [button, led1])]
-	fn btn_1(cx: blink1::Context) {
-		cx.local.led1.toggle();
-		blink1::spawn_after(Duration::<u64, 1, 1000>::from_ticks(50)).unwrap();
 	}
 }
