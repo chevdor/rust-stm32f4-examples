@@ -13,7 +13,7 @@
 [package]
 name = "button-led-rtic"
 version = "0.0.1"
-authors = ["Tim Docker<tim@dockerz.net>"]
+authors = ["Tim Docker<tim@dockerz.net>", "chevdor<chevdor@gmail.com>"]
 description = "Minimal prog for the rtic system"
 keywords = ["arm", "cortex-m"]
 categories = ["embedded", "no-std"]
@@ -53,7 +53,3 @@ default-features = false
 version = "0.3"
 default-features = false
 features = ["macros"]
-
-[dependencies.stm32f429i-disc]
-version = "0.3"
-
